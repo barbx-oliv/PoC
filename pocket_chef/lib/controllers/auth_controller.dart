@@ -9,7 +9,7 @@ class AuthController extends ChangeNotifier {
   bool isLoading = false;
   String errorMessage = '';
 
-  // Funcao de Login
+  // Login
   Future<bool> login(String email, String password) async {
     try {
       isLoading = true;
@@ -29,7 +29,7 @@ class AuthController extends ChangeNotifier {
     }
   }
 
-  // Funcao de Cadastro
+  // Cadastro
   Future<bool> register(String email, String password) async {
     try {
       isLoading = true;
@@ -49,7 +49,7 @@ class AuthController extends ChangeNotifier {
     }
   }
 
-  // Funcao de Logout
+  // Logout
   Future<void> logout() async {
     await _auth.signOut();
     notifyListeners();

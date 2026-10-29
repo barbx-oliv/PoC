@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../controllers/auth_controller.dart';
-import '../controllers/recipe_controller.dart';
+import 'package:pocket_chef/controllers/recipe_controller.dart';
 import 'login_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -34,7 +34,6 @@ class _HomeViewState extends State<HomeView> {
         ),
         backgroundColor: primaryRed,
         actions: [
-          // Botão para deslogar
           IconButton(
             icon: const Icon(Icons.logout, color: Colors.white),
             onPressed: () async {
@@ -53,7 +52,6 @@ class _HomeViewState extends State<HomeView> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Barra de Pesquisa
             TextField(
               controller: _searchController,
               decoration: InputDecoration(
@@ -83,7 +81,6 @@ class _HomeViewState extends State<HomeView> {
             ),
             const SizedBox(height: 20),
 
-            // Exibição do Conteúdo (Carregando, Vazio ou Lista)
             Expanded(
               child: recipeController.isLoading
                   ? Center(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../controllers/auth_controller.dart';
+import 'package:pocket_chef/controllers/auth_controller.dart';
 import 'home_view.dart';
 
 class LoginView extends StatefulWidget {
