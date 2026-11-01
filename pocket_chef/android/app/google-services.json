@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "949692691471",
+    "project_id": "pockc-64f17",
+    "storage_bucket": "pockc-64f17.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949692691471:android:ac9cb42002d0de36515f7a",
+        "android_client_info": {
+          "package_name": "com.example.pocket_chef"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-8GC6qzeo_a0k05AzauHxd_MqKg9S-Mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,57 +1,38 @@
-import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:pocket_chef/model/recipe_model.dart';
 
-class AuthController extends ChangeNotifier {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+class FirebaseService {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  User? get currentUser => _auth.currentUser;
-
-  bool isLoading = false;
-  String errorMessage = '';
-
-  // Funcao de Login
-  Future<bool> login(String email, String password) async {
-    try {
-      isLoading = true;
-      errorMessage = '';
-      notifyListeners();
-
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
-      
-      isLoading = false;
-      notifyListeners();
-      return true;
-    } catch (e) {
-      isLoading = false;
-      errorMessage = e.toString();
-      notifyListeners();
-      return false;
-    }
+  // Salvar receita na subcoleção do usuário
+  Future<void> saveRecipe(String userId, RecipeModel recipe) async {
+    await _firestore
+        .collection('users')
+        .doc(userId)
+        .collection('savedRecipes')
+        .doc(recipe.idApi)
+        .set(recipe.toMap());
   }
 
-  // Funcao de Cadastro
-  Future<bool> register(String email, String password) async {
-    try {
-      isLoading = true;
-      errorMessage = '';
-      notifyListeners();
-
-      await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      
-      isLoading = false;
-      notifyListeners();
-      return true;
-    } catch (e) {
-      isLoading = false;
-      errorMessage = e.toString();
-      notifyListeners();
-      return false;
-    }
+  // Remover receita da subcoleção do usuário
+  Future<void> removeRecipe(String userId, String recipeId) async {
+    await _firestore
+        .collection('users')
+        .doc(userId)
+        .collection('savedRecipes')
+        .doc(recipeId)
+        .delete();
   }
 
-  // Funcao de Logout
-  Future<void> logout() async {
-    await _auth.signOut();
-    notifyListeners();
+  // Stream para escutar as receitas em tempo real
+  Stream<List<RecipeModel>> getSavedRecipes(String userId) {
+    return _firestore
+        .collection('users')
+        .doc(userId)
+        .collection('savedRecipes')
+        .snapshots()
+        .map((snapshot) => snapshot.docs
+            .map((doc) => RecipeModel.fromMap(doc.data()))
+            .toList());
   }
 }

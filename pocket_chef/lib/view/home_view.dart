@@ -16,7 +16,7 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    // Cores da nossa paleta personalizada
+
     final Color primaryRed = Color(0xFFc32f27);
     final Color warmOrange = Color(0xFFd8572a);
     final Color darkRed = Color(0xFF780116);
@@ -111,8 +111,6 @@ class _HomeViewState extends State<HomeView> {
                                 contentPadding: const EdgeInsets.all(8),
                                 leading: ClipRRect(
                                   borderRadius: BorderRadius.circular(8),
-                                  image: NetworkImage(recipe.image),
-                                  // Tratamento básico caso a imagem demore ou falhe
                                   child: Image.network(
                                     recipe.image,
                                     width: 60,

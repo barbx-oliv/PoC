@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pocket_chef/controllers/recipe_controller.dart';
 import '../services/api_service.dart';
 import '../services/firebase_service.dart';
+import 'package:pocket_chef/model/recipe_model.dart';
 
 class RecipeController extends ChangeNotifier {
   final FirebaseService _firebaseService = FirebaseService();
