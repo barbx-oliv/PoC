@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import '../services/api_service.dart';
+=======
+import 'package:pocket_chef/controllers/recipe_controller.dart';
+import 'package:pocket_chef/services/api_service.dart';
+import 'package:pocket_chef/model/recipe_model.dart';
+>>>>>>> 368d8b79b022c427eeec4456f2f49bc457c6f9cd
 import '../services/firebase_service.dart';
 import 'package:pocket_chef/model/recipe_model.dart';
 

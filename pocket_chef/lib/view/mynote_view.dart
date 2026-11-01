@@ -10,7 +10,6 @@ class MyNotebookView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Cores da nossa paleta personalizada
     final Color primaryRed = Color(0xFFc32f27);
     final Color warmOrange = Color(0xFFd8572a);
     final Color darkRed = Color(0xFF780116);
